@@ -20,7 +20,19 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-    </dependencies>
+        <!-- declares default dependencies (Spring Data JPA, Hibernate 4, Spring 4) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
 
+        <!-- MySQL database driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.27</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
