@@ -5,11 +5,12 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.Arrays;
 
 /**
- * Application class with the components
+ * Main class with the components
  *
  * Normally you would add @EnableWebMvc for a Spring MVC app, but Spring Boot adds it automatically when it sees
  * spring-webmvc on the classpath. This flags the application as a web application and activates key behaviors
@@ -23,12 +24,13 @@ import java.util.Arrays;
 
 //tells Spring to look for other components, configurations, and services in the the hello package, allowing it to find Controllers
 @ComponentScan
-public class Application {
+@EnableJpaRepositories
+public class Main {
 
     public static void main(String[] args) {
 
         //All that is needed to get app running.
-        ApplicationContext ctx = SpringApplication.run(Application.class, args);
+        ApplicationContext ctx = SpringApplication.run(Main.class, args);
 
         //OPTIONAL
         System.out.println("Beans provided by Spring Boot:");
