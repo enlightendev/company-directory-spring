@@ -1,5 +1,9 @@
 package com.philafin.companydirectory.model;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.philafin.companydirectory.serializers.ApplicationSerializer;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
@@ -13,6 +17,8 @@ import java.util.Date;
  */
 @Entity
 @Table (name = "applications")
+@JsonSerialize(using = ApplicationSerializer.class)
+@JsonRootName(value = "applications")
 public class Application extends AbstractPersistable<Long> {
 
     @Column(unique = true)
