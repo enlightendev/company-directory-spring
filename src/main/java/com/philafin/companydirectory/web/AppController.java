@@ -22,4 +22,9 @@ public class AppController {
 
         return "home";
     }
+
+    @RequestMapping("/app")
+    public String app() {
+        return "app";
+    }
 }
