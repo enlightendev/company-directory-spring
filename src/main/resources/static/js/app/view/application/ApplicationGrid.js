@@ -36,6 +36,23 @@ Ext.define('CD.view.application.ApplicationGrid', {
                         xtype: 'textfield'
                     }
                 }
+            ],
+
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'bottom',
+                    hidden: false,
+                    itemId: 'applicationsToolbar',
+                    items: [
+                        {
+                            xtype: 'button',
+                            itemId: 'deleteButton',
+                            icon: 'extjs/application_delete.gif',
+                            text: 'Delete'
+                        }
+                    ]
+                }
             ]
         });
 

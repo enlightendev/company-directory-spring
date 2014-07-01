@@ -28,6 +28,16 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
+    public Application deleteApplication(Long id) {
+
+
+        Application application = applicationRepository.findOne(id);
+        applicationRepository.delete(id);
+
+        return application;
+    }
+
+    @Override
     public Application updateApplication(Application application) {
         return applicationRepository.save(application);
     }

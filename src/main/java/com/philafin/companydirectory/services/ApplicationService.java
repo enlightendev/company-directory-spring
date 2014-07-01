@@ -12,6 +12,8 @@ public interface ApplicationService {
 
     Application getApplication(Long id);
 
+    Application deleteApplication(Long id);
+
     Application updateApplication(Application application);
 
     Iterator<Application> getApplications();
