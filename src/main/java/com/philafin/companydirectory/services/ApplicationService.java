@@ -16,6 +16,8 @@ public interface ApplicationService {
 
     Application updateApplication(Application application);
 
+    Application createApplication(Application application);
+
     Iterator<Application> getApplications();
 
     List<Application> search(String name);

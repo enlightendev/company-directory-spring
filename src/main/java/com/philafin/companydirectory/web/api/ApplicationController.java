@@ -28,6 +28,15 @@ public class ApplicationController {
         return Lists.newArrayList(iterator);
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/applications")
+    Application createApplication(@RequestBody Application application) {
+
+        applicationService.createApplication(application);
+
+        return application;
+
+    }
+
     @RequestMapping(method = GET, value = "/applications/{id}")
     Application loadApplication(@PathVariable Long id) {
         return applicationService.getApplication(id);

@@ -50,6 +50,12 @@ Ext.define('CD.view.application.ApplicationGrid', {
                             itemId: 'deleteButton',
                             icon: 'extjs/application_delete.gif',
                             text: 'Delete'
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'createButton',
+                            icon: 'extjs/application_create.gif',
+                            text: 'New'
                         }
                     ]
                 }
