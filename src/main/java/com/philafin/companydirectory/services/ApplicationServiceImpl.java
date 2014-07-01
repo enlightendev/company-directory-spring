@@ -28,6 +28,11 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
+    public Application updateApplication(Application application) {
+        return applicationRepository.save(application);
+    }
+
+    @Override
     public Iterator<Application> getApplications() {
         return applicationRepository.findAll().iterator();
     }

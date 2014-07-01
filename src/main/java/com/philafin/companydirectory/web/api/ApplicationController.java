@@ -4,9 +4,7 @@ import com.google.common.collect.Lists;
 import com.philafin.companydirectory.model.Application;
 import com.philafin.companydirectory.services.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -30,8 +28,17 @@ public class ApplicationController {
         return Lists.newArrayList(iterator);
     }
 
-    @RequestMapping(method = GET, value = "/applications/{application}")
-    Application loadApplication(@PathVariable Long application) {
-        return applicationService.getApplication(application);
+    @RequestMapping(method = GET, value = "/applications/{id}")
+    Application loadApplication(@PathVariable Long id) {
+        return applicationService.getApplication(id);
+    }
+
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/applications/{id}")
+    Application updateApplication(@PathVariable Long id, @RequestBody Application application) {
+
+        applicationService.updateApplication(application);
+
+        return application;
     }
 }

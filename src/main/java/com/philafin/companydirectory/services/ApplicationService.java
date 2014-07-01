@@ -12,8 +12,12 @@ public interface ApplicationService {
 
     Application getApplication(Long id);
 
+    Application updateApplication(Application application);
+
     Iterator<Application> getApplications();
 
     List<Application> search(String name);
+
+
 
 }
