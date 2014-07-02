@@ -23,7 +23,7 @@ public class ApplicationSerializer extends JsonSerializer<Application> {
         jsonGenerator.writeStringField("app_type", application.getApp_type());
         jsonGenerator.writeStringField("description", application.getDescription());
         jsonGenerator.writeStringField("technical_owner", application.getTechnical_owner());
-        jsonGenerator.writeStringField("home_page", application.getTechnical_owner());
+        jsonGenerator.writeStringField("home_page", application.getHome_page());
         jsonGenerator.writeStringField("ticket_url", application.getTicket_url());
         jsonGenerator.writeStringField("documentation_url", application.getDocumentation_url());
         jsonGenerator.writeStringField("business_owner", application.getBusiness_owner());
