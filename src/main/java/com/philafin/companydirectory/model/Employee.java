@@ -1,5 +1,7 @@
 package com.philafin.companydirectory.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.philafin.companydirectory.serializers.EmployeeSerializer;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
@@ -11,6 +13,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "employees")
+@JsonSerialize(using = EmployeeSerializer.class)
 public class Employee extends AbstractPersistable<Long> {
 
     private String fname;

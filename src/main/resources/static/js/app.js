@@ -11,11 +11,14 @@ Ext.application({
     ],
 
     stores: [
-        'ApplicationStore'
+        'ApplicationStore',
+        'EmployeeStore',
+        'TagStoreInMemory'
     ],
 
     controllers: [
-        'ApplicationController'
+        'ApplicationController',
+        'EmployeeController'
     ],
 
     launch : function() {
