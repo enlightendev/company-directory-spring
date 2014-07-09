@@ -27,6 +27,12 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
+        <!-- SECURITY -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <!-- DATA -->
 
         <!-- declares default dependencies (Spring Data JPA, Hibernate 4, Spring 4) -->
