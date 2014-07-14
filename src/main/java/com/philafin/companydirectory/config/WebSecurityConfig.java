@@ -1,17 +1,18 @@
 package com.philafin.companydirectory.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 
 /**
  * Security config
  * http://spring.io/guides/gs/securing-web/
+ * http://docs.spring.io/spring-security/site/docs/3.2.x/guides/hellomvc.html
  */
 @Configuration
 @EnableWebMvcSecurity
+@ImportResource( { "classpath*:/crowd-client.xml", "classpath*:/crowd-spring-security.xml"})
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
@@ -22,6 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * @param http
      * @throws Exception
      */
+    /*
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -37,12 +39,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll();
     }
+    */
 
+    /*
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
                 .withUser("user").password("password").roles("USER");
     }
-
+    */
 }

@@ -1,0 +1,66 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <!--
+    <http pattern='/styles/*' security='none'/>
+    <http pattern='/scripts/*' security='none'/>
+    -->
+
+    <http auto-config="false"
+          entry-point-ref="crowdAuthenticationProcessingFilterEntryPoint">
+
+        <custom-filter position="FORM_LOGIN_FILTER" ref='authenticationProcessingFilter'/>
+        <custom-filter position="LOGOUT_FILTER" ref='logoutFilter'/>
+
+        <intercept-url pattern="/admin/*" access="ROLE_application-administrators"/>
+        <intercept-url pattern="/passwordHint.html" access="ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_USER"/>
+        <intercept-url pattern="/**/*.html*" access="IS_AUTHENTICATED_FULLY"/>
+    </http>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider ref='crowdAuthenticationProvider' />
+    </authentication-manager>
+
+    <beans:bean id="crowdAuthenticationProcessingFilterEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <beans:constructor-arg value="/login.jsp"/>
+    </beans:bean>
+
+    <beans:bean id="authenticationProcessingFilter" class="com.atlassian.crowd.integration.springsecurity.CrowdSSOAuthenticationProcessingFilter">
+        <beans:property name="httpAuthenticator" ref="httpAuthenticator"/>
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+        <beans:property name="filterProcessesUrl" value="/j_security_check"/>
+        <beans:property name="authenticationFailureHandler">
+            <beans:bean class="com.atlassian.crowd.integration.springsecurity.UsernameStoringAuthenticationFailureHandler">
+                <beans:property name="defaultFailureUrl" value="/login.jsp?error=true"/>
+            </beans:bean>
+        </beans:property>
+
+        <beans:property name="authenticationSuccessHandler">
+            <beans:bean class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+                <beans:property name="defaultTargetUrl" value="/"/>
+            </beans:bean>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="crowdLogoutHandler" class="com.atlassian.crowd.integration.springsecurity.CrowdLogoutHandler">
+        <beans:property name="httpAuthenticator" ref="httpAuthenticator"/>
+    </beans:bean>
+
+    <beans:bean id="logoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter">
+        <beans:constructor-arg value="/home.html"/>
+        <beans:constructor-arg>
+            <beans:list>
+                <beans:ref bean="crowdLogoutHandler"/>
+                <beans:bean class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/>
+            </beans:list>
+        </beans:constructor-arg>
+        <beans:property name="filterProcessesUrl" value="/logout.jsp"/>
+    </beans:bean>
+
+</beans:beans>
+
