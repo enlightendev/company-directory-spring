@@ -1,6 +1,8 @@
 # Company Directory #
 
-This application ... 
+This application serves as a central hub to easily retrieve employee data, e.g. 
+phone numbers, roles, support info, etc. It will also serve as the foundation for automating
+any on boarding and off boarding processes.
 
 
 ## Prerequisites ##
@@ -20,7 +22,8 @@ This project requires Maven 3 to build.
 Get started:
 
     clone the repo: git clone https://github.com/jlamadrid/company-directory-spring
-    cd company-directory-spring    
+    cd company-directory-spring  
+    maven clean compile
 
 ### Database
 - The application.properties file contains the database connection info.
@@ -43,7 +46,9 @@ Testing:
 Running the app:
 
     open project in your IDE and exec Main.java
+    or command line: mvn spring-boot:run
     open URL: http://localhost:8080/app
+    when prompted for username password see WebSecurityConfig for credentials
 
 ## NOTES & FUTURE TODOs ##
 
