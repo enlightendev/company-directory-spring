@@ -9,6 +9,9 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
  * Security config
  * http://spring.io/guides/gs/securing-web/
  * http://docs.spring.io/spring-security/site/docs/3.2.x/guides/hellomvc.html
+ *
+ * NOTE: to configure CROWD based security simply uncomment @ImportResource and comment out
+ * any overiding methods in WebSecurity Config
  */
 @Configuration
 @EnableWebMvcSecurity
