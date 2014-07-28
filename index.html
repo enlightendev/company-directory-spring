@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Company-directory-spring : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Company-directory-spring</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jlamadrid/company-directory-spring">View on GitHub</a>
+
+          <h1 id="project_title">Company-directory-spring</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jlamadrid/company-directory-spring/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jlamadrid/company-directory-spring/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="company-directory" class="anchor" href="#company-directory"><span class="octicon octicon-link"></span></a>Company Directory</h1>
+
+<p>This application serves as a central hub to easily retrieve employee data, e.g. 
+phone numbers, roles, support info, etc. It will also serve as the foundation for automating
+any on boarding and off boarding processes.</p>
+
+<h2>
+<a name="prerequisites" class="anchor" href="#prerequisites"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<ul>
+<li>Spring Boot (created with dependency specified in pom.xml) - <a href="http://projects.spring.io/spring-boot/">http://projects.spring.io/spring-boot/</a>
+</li>
+<li>Maven 3.2.2 - <a href="http://maven.apache.org/download.cgi">http://maven.apache.org/download.cgi</a>
+</li>
+<li>JDK 1.7</li>
+<li>MySQL 5 or greater - <a href="http://dev.mysql.com/downloads/">http://dev.mysql.com/downloads/</a>
+</li>
+</ul><p>This app is a Spring Boot application and thus leaves much of the configuration to the framework. 
+Dependencies and builds are managed via maven and thus maven is necessary</p>
+
+<h2>
+<a name="build-instructions" class="anchor" href="#build-instructions"><span class="octicon octicon-link"></span></a>Build Instructions</h2>
+
+<p>This project requires Maven 3 to build. </p>
+
+<p>Get started:</p>
+
+<pre><code>clone the repo: git clone https://github.com/jlamadrid/company-directory-spring
+cd company-directory-spring  
+maven clean compile
+</code></pre>
+
+<h3>
+<a name="database" class="anchor" href="#database"><span class="octicon octicon-link"></span></a>Database</h3>
+
+<ul>
+<li>The application.properties file contains the database connection info.</li>
+<li>The application currently uses mysql and thus a schema and user defined in application.properties must be created.</li>
+<li>Upon restart the following files are executed to create test data: schema.sql and data.sql</li>
+</ul><h3>
+<a name="security" class="anchor" href="#security"><span class="octicon octicon-link"></span></a>Security</h3>
+
+<ul>
+<li>You can configure security in WebSecurityConfig.java</li>
+<li>To keep things simple use the in-memory authentication provided by spring security.</li>
+<li>To configure CROWD based security simply uncomment @ImportResource and comment out any overriding 
+methods in WebSecurity Config</li>
+</ul><h3>
+<a name="testing-and-running-the-application" class="anchor" href="#testing-and-running-the-application"><span class="octicon octicon-link"></span></a>Testing and Running the application</h3>
+
+<p>Testing: </p>
+
+<pre><code>in your IDE or command line run 'mvn test' 
+</code></pre>
+
+<p>Running the app:</p>
+
+<pre><code>open project in your IDE and exec Main.java
+or command line: mvn spring-boot:run
+open URL: http://localhost:8080/app
+when prompted for username password see WebSecurityConfig for credentials
+</code></pre>
+
+<h2>
+<a name="notes--future-todos" class="anchor" href="#notes--future-todos"><span class="octicon octicon-link"></span></a>NOTES &amp; FUTURE TODOs</h2>
+
+<p>Follow this guide to access entities through a hypermedia-based RESTful front end:
+<a href="https://github.com/spring-guides/gs-accessing-data-rest">https://github.com/spring-guides/gs-accessing-data-rest</a></p>
+
+<p>NOTE: first have to figure out how ExtJS can access a ypermedia based rest api.</p>
+
+<p>Steps:
+1 - Add the following dependency to your POM</p>
+
+<pre><code>    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-data-rest&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+</code></pre>
+
+<p>2 - Add "<a href="https://github.com/Import" class="user-mention">@Import</a>(RepositoryRestMvcConfiguration.class)" to the main app</p>
+
+<p>3 - Remove "<a href="https://github.com/Repository" class="user-mention">@Repository</a>" from CrudRepository and replace with 
+    @RepositoryRestResource(collectionResourceRel = "employee", path = "employee")</p>
+
+<p>4 - You can remove Rest Controllers now and access hypermedia based restful URLS.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Company-directory-spring maintained by <a href="https://github.com/jlamadrid">jlamadrid</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
