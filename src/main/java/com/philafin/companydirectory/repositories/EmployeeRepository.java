@@ -1,4 +1,4 @@
-package com.philafin.companydirectory.services;
+package com.philafin.companydirectory.repositories;
 
 import com.philafin.companydirectory.model.Employee;
 import org.springframework.data.jpa.repository.Query;

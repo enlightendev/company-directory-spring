@@ -2,7 +2,7 @@ package com.philafin.companydirectory.web.api;
 
 import com.google.common.collect.Lists;
 import com.philafin.companydirectory.model.Employee;
-import com.philafin.companydirectory.services.EmployeeRepository;
+import com.philafin.companydirectory.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

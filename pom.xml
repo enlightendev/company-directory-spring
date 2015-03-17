@@ -11,16 +11,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.1.1.RELEASE</version>
+        <version>1.2.2.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
-    <properties>
-        <crowd.version>2.7.2</crowd.version>
-    </properties>
 
     <dependencies>
 
-        <!-- WEB -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -28,30 +24,17 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
 
-        <!-- SECURITY -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-
-        <!-- SECURITY - CROWD INTEGRATION
-
-        https://developer.atlassian.com/display/CROWDDEV/Maven+2+Integration-->
-        <dependency>
-            <groupId>com.atlassian.crowd</groupId>
-            <artifactId>crowd-integration-springsecurity</artifactId>
-            <version>${crowd.version}</version>
-        </dependency>
-
-        <!-- DATA -->
-
-        <!-- declares default dependencies (Spring Data JPA, Hibernate 4, Spring 4) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-rest-webmvc</artifactId>
         </dependency>
 
         <!-- MySQL database driver -->
@@ -61,17 +44,6 @@
         </dependency>
 
         <!-- TESTING -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>4.0.5.RELEASE</version>
-        </dependency>
 
         <!-- UTILS -->
         <dependency>
@@ -82,20 +54,5 @@
 
     </dependencies>
 
-    <repositories>
-
-        <!-- https://developer.atlassian.com/display/CROWDDEV/Maven+2+Integration -->
-        <repository>
-            <id>central</id>
-            <url>https://m2proxy.atlassian.com/repository/public</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-    </repositories>
 
 </project>
